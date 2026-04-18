@@ -18,7 +18,7 @@ export function LanguageProvider({ children }) {
     localStorage.setItem('lang', newLang);
   };
 
-  const t = (key) => T[lang][key] || key;
+  const t = (key) => T[lang][key] ?? T['en'][key] ?? key;
 
   const value = { lang, setLang, t };
 
