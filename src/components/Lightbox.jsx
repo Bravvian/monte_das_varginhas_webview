@@ -3,6 +3,7 @@ import { IDS, gdUrl } from '../data/images';
 
 export default function Lightbox({ open, idx, onClose, onNav }) {
   const thumbRef = useRef(null);
+  const touchStartX = useRef(null);
 
   useEffect(() => {
     if (!open) return;
@@ -21,10 +22,23 @@ export default function Lightbox({ open, idx, onClose, onNav }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [open, onNav, onClose]);
 
+  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) onNav(dx < 0 ? 1 : -1);
+    touchStartX.current = null;
+  };
+
   if (!open) return null;
 
   return (
-    <div className="lb open" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+    <div
+      className="lb open"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <button className="lb-close" aria-label="Close lightbox" onClick={onClose}><i className="fa fa-times"></i></button>
       <button className="lb-prev" aria-label="Previous image" onClick={() => onNav(-1)}><i className="fa fa-chevron-left"></i></button>
       <img className="lb-img" src={gdUrl(IDS[idx])} alt="Monte Varginhas" />

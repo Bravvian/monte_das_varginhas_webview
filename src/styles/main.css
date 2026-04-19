@@ -267,4 +267,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:48px 0 24px}
   .cookie{flex-direction:column;align-items:flex-start;padding:14px 16px}
   .cookie-btns{width:100%;justify-content:flex-end}
   .foot-g{grid-template-columns:1fr;gap:28px}
+  .gal-g{grid-template-columns:1fr}
+  .gal-img:first-child{grid-column:auto;height:200px}
 }
