@@ -1,0 +1,12 @@
+{
+  "name": "Monte das Varginhas",
+  "short_name": "Monte Varginhas",
+  "description": "Private villa in Porto Covo, Alentejo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#C8963E",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}

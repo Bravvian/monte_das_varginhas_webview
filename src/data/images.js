@@ -1,3 +1,8 @@
+const LOCAL_IMAGES = false;
+
+export const imageUrl = (localPath, gdId) =>
+  LOCAL_IMAGES ? localPath : gdUrl(gdId);
+
 export const IDS = [
   '1X7Oqu0sQSuLpNqk9jxkMtqfQiAaSboVT','1t_Gs7bO6R_k2FxLleHVMaIzhBg2YDr4r','1HOqfFS1cbzPCiXkIuI8v4cBDgJoXtVAP',
   '1eehYcnzoxT-qp3rH4HejYLsWFr6oEWro','1KTPXh8ddkxjYHKXEE0o0GTrPiNhSmpZT','197DWnMTtjURRybf28OiA1ttwkZNQi776',

@@ -1,12 +1,6 @@
-import { useContext } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
+import { useTranslation } from 'react-i18next';
 
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-
-  return context;
+export default function useLanguage() {
+  const { t, i18n } = useTranslation();
+  return { lang: i18n.language.slice(0, 2), setLang: (lng) => i18n.changeLanguage(lng), t };
 }

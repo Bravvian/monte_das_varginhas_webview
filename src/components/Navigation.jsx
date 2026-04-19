@@ -16,6 +16,7 @@ export default function Navigation() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <nav style={{ boxShadow: scrolled ? '0 2px 16px rgba(0,0,0,.08)' : 'none' }}>
         <div className="container nav-i">
           <a className="logo" href="#hero">Monte <span>Varginhas</span></a>
@@ -25,14 +26,20 @@ export default function Navigation() {
             <li><a href="#gallery">{t('nav_gallery')}</a></li>
             <li><a href="#reviews">{t('nav_reviews')}</a></li>
             <li><a href="#loc">{t('nav_loc')}</a></li>
-            <li>
-              <button className="lang-btn" onClick={() => setLang(lang === 'en' ? 'pt' : 'en')}>
-                {lang === 'en' ? 'PT' : 'EN'}
-              </button>
+            <li className="lang-switcher">
+              {['en', 'pt', 'fr', 'es'].map((code) => (
+                <button
+                  key={code}
+                  className={`lang-btn${lang === code ? ' active' : ''}`}
+                  onClick={() => setLang(code)}
+                >
+                  {code.toUpperCase()}
+                </button>
+              ))}
             </li>
             <li><a href="#booking" className="nav-cta">{t('nav_book')}</a></li>
           </ul>
-          <button className="hamburger" onClick={() => setMobOpen((o) => !o)}>
+          <button className="hamburger" aria-label="Toggle navigation menu" onClick={() => setMobOpen((o) => !o)}>
             <i className="fa fa-bars"></i>
           </button>
         </div>
