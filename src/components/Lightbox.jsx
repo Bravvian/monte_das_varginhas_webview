@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { IDS, gdUrl } from '../data/images';
+import { ALL_IMAGES } from '../data/images';
 
 export default function Lightbox({ open, idx, onClose, onNav }) {
   const thumbRef = useRef(null);
@@ -41,15 +41,15 @@ export default function Lightbox({ open, idx, onClose, onNav }) {
     >
       <button className="lb-close" aria-label="Close lightbox" onClick={onClose}><i className="fa fa-times"></i></button>
       <button className="lb-prev" aria-label="Previous image" onClick={() => onNav(-1)}><i className="fa fa-chevron-left"></i></button>
-      <img className="lb-img" src={gdUrl(IDS[idx])} alt="Monte Varginhas" />
+      <img className="lb-img" src={ALL_IMAGES[idx]} alt="Monte Varginhas" />
       <button className="lb-next" aria-label="Next image" onClick={() => onNav(1)}><i className="fa fa-chevron-right"></i></button>
-      <div className="lb-counter">{idx + 1} / {IDS.length}</div>
+      <div className="lb-counter">{idx + 1} / {ALL_IMAGES.length}</div>
       <div className="lb-thumbs" ref={thumbRef}>
-        {IDS.map((id, i) => (
+        {ALL_IMAGES.map((src, i) => (
           <img
-            key={id}
+            key={src}
             className={`lb-thumb${i === idx ? ' on' : ''}`}
-            src={gdUrl(id)}
+            src={src}
             loading="lazy"
             alt={`Photo ${i + 1}`}
             onClick={() => onNav(i - idx)}

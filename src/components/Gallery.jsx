@@ -1,7 +1,5 @@
 import useLanguage from '../hooks/useLanguage';
-import { IDS, gdUrl } from '../data/images';
-
-const GALLERY_INDICES = [6, 7, 8, 9, 10];
+import { GALLERY, OFFSETS } from '../data/images';
 
 export default function Gallery({ onImageClick }) {
   const { t } = useLanguage();
@@ -11,13 +9,13 @@ export default function Gallery({ onImageClick }) {
         <div className="tag">{t('gal_tag')}</div>
         <h2 className="stitle">{t('gal_title')}</h2>
         <div className="gal-g">
-          {GALLERY_INDICES.map((imgIdx) => (
-            <div className="gal-img" key={imgIdx} onClick={() => onImageClick(imgIdx)}>
-              <img src={gdUrl(IDS[imgIdx])} alt={`Monte Varginhas photo ${imgIdx + 1}`} loading="lazy" />
+          {GALLERY.map((src, i) => (
+            <div className="gal-img" key={src} onClick={() => onImageClick(OFFSETS.GALLERY + i)}>
+              <img src={src} alt={`Monte Varginhas photo ${i + 1}`} loading="lazy" />
             </div>
           ))}
         </div>
-        <button className="gal-btn" onClick={() => onImageClick(0)}>
+        <button className="gal-btn" onClick={() => onImageClick(OFFSETS.GALLERY)}>
           <i className="fa fa-images"></i>
           <span>{t('gal_btn')}</span>
         </button>

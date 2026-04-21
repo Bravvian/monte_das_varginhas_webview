@@ -1,5 +1,5 @@
 import useLanguage from '../hooks/useLanguage';
-import { IDS, gdUrl } from '../data/images';
+import { HERO, OFFSETS } from '../data/images';
 
 const FEATURES = [
   { icon: 'fa fa-door-open', titleKey: 'f1t', subKey: 'f1s' },
@@ -31,8 +31,8 @@ export default function About({ onImageClick }) {
               ))}
             </div>
           </div>
-          <div className="about-img" onClick={() => onImageClick?.(5)}>
-            <img src={gdUrl(IDS[5])} alt="Monte Varginhas" loading="lazy" />
+          <div className="about-img" onClick={() => onImageClick?.(OFFSETS.HERO + 5)}>
+            <img src={HERO[5]} alt="Monte Varginhas" loading="lazy" />
           </div>
         </div>
       </div>

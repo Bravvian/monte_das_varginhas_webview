@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import useLanguage from '../hooks/useLanguage';
-import { IDS, gdUrl } from '../data/images';
+import { HERO } from '../data/images';
 
-const HERO_IDS = IDS.slice(0, 5);
+const SLIDES = HERO.slice(0, 5);
 
 export default function Hero() {
   const { t } = useLanguage();
   const [cur, setCur] = useState(0);
 
-  const goSlide = (n) => setCur((n + HERO_IDS.length) % HERO_IDS.length);
+  const goSlide = (n) => setCur((n + SLIDES.length) % SLIDES.length);
 
   useEffect(() => {
     const id = setInterval(() => goSlide(cur + 1), 5000);
@@ -18,11 +18,11 @@ export default function Hero() {
   return (
     <section id="hero">
       <div className="slides">
-        {HERO_IDS.map((id, i) => (
+        {SLIDES.map((src, i) => (
           <div
-            key={id}
+            key={src}
             className={`slide${i === cur ? ' on' : ''}`}
-            style={{ backgroundImage: `url(${gdUrl(id)})` }}
+            style={{ backgroundImage: `url(${src})` }}
           />
         ))}
       </div>
@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="dots">
-        {HERO_IDS.map((_, i) => (
+        {SLIDES.map((_, i) => (
           <button key={i} className={`dot${i === cur ? ' on' : ''}`} onClick={() => goSlide(i)} />
         ))}
       </div>

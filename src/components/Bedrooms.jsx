@@ -1,11 +1,11 @@
 import useLanguage from '../hooks/useLanguage';
-import { IDS, gdUrl } from '../data/images';
+import { ROOM1, ROOM2, ROOM3, ROOM4, OFFSETS } from '../data/images';
 
 const BEDS = [
-  { nameKey: 'bed1', descKey: 'bed1d', imgIdx: 20 },
-  { nameKey: 'bed2', descKey: 'bed2d', imgIdx: 25 },
-  { nameKey: 'bed3', descKey: 'bed3d', imgIdx: 30 },
-  { nameKey: 'bed4', descKey: 'bed4d', imgIdx: 35 },
+  { nameKey: 'bed1', descKey: 'bed1d', cover: ROOM1[0], lbOffset: OFFSETS.ROOM1 },
+  { nameKey: 'bed2', descKey: 'bed2d', cover: ROOM2[0], lbOffset: OFFSETS.ROOM2 },
+  { nameKey: 'bed3', descKey: 'bed3d', cover: ROOM3[0], lbOffset: OFFSETS.ROOM3 },
+  { nameKey: 'bed4', descKey: 'bed4d', cover: ROOM4[0], lbOffset: OFFSETS.ROOM4 },
 ];
 
 export default function Bedrooms({ onImageClick }) {
@@ -17,9 +17,9 @@ export default function Bedrooms({ onImageClick }) {
         <h2 className="stitle">{t('beds_title')}</h2>
         <div className="beds-g">
           {BEDS.map((bed) => (
-            <div className="bed-card" key={bed.nameKey} onClick={() => onImageClick?.(bed.imgIdx)}>
+            <div className="bed-card" key={bed.nameKey} onClick={() => onImageClick?.(bed.lbOffset)}>
               <div className="bed-img">
-                <img src={gdUrl(IDS[bed.imgIdx])} alt={t(bed.nameKey)} loading="lazy" />
+                <img src={bed.cover} alt={t(bed.nameKey)} loading="lazy" />
               </div>
               <div className="bed-body">
                 <h3>{t(bed.nameKey)}</h3>

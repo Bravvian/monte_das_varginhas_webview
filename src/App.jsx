@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './styles/main.css';
-import { IDS } from './data/images';
+import { ALL_IMAGES } from './data/images';
 import useLightbox from './hooks/useLightbox';
 import useLanguage from './hooks/useLanguage';
 
@@ -23,7 +23,7 @@ import CookieBanner from './components/CookieBanner';
 
 export default function App() {
   const { open, idx, lbOpen, lbClose, lbNav } = useLightbox();
-  const onNav = (dir) => lbNav(dir, IDS.length);
+  const onNav = (dir) => lbNav(dir, ALL_IMAGES.length);
   const { lang } = useLanguage();
 
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
