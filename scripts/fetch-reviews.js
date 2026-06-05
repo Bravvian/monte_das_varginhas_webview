@@ -15,43 +15,63 @@ if (!API_KEY || !PLACE_ID) {
   process.exit(0);
 }
 
-const url =
-  `https://maps.googleapis.com/maps/api/place/details/json` +
-  `?place_id=${PLACE_ID}` +
-  `&fields=rating,user_ratings_total,reviews` +
-  `&reviews_sort=newest` +
-  `&language=en` +
-  `&key=${API_KEY}`;
+async function fetchForLanguage(lang) {
+  const url =
+    `https://maps.googleapis.com/maps/api/place/details/json` +
+    `?place_id=${PLACE_ID}` +
+    `&fields=rating,user_ratings_total,reviews` +
+    `&reviews_sort=newest` +
+    `&language=${lang}` +
+    `&key=${API_KEY}`;
+  const res = await fetch(url);
+  return res.json();
+}
 
 try {
-  const res = await fetch(url);
-  const json = await res.json();
+  // Fetch in multiple languages — Google returns a different top-5 per language
+  const [enJson, ptJson, esJson] = await Promise.all([
+    fetchForLanguage('en'),
+    fetchForLanguage('pt'),
+    fetchForLanguage('es'),
+  ]);
 
-  if (json.status !== 'OK') {
-    console.error('[fetch-reviews] Places API error:', json.status, json.error_message);
+  if (enJson.status !== 'OK') {
+    console.error('[fetch-reviews] Places API error:', enJson.status, enJson.error_message);
     writeFileSync(outPath, empty);
     process.exit(0);
   }
 
-  const raw = json.result?.reviews ?? [];
+  const rating = enJson.result?.rating ?? null;
+  const totalCount = enJson.result?.user_ratings_total ?? null;
 
-  const reviews = raw.filter((r) => r.text?.trim()).map((r) => ({
-    name: r.author_name,
-    profilePhoto: r.profile_photo_url,
-    stars: r.rating,
-    date: new Date(r.time * 1000).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
-    en: r.text,
-    source: 'google',
-  }));
+  // Deduplicate by author_name + time across all language responses
+  const seen = new Set();
+  const reviews = [];
 
-  const output = {
-    rating: json.result?.rating ?? null,
-    totalCount: json.result?.user_ratings_total ?? null,
-    reviews,
-  };
+  for (const json of [enJson, ptJson, esJson]) {
+    if (json.status !== 'OK') continue;
+    for (const r of (json.result?.reviews ?? [])) {
+      if (!r.text?.trim()) continue;
+      const key = `${r.author_name}__${r.time}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      reviews.push({
+        name: r.author_name,
+        profilePhoto: r.profile_photo_url,
+        stars: r.rating,
+        date: new Date(r.time * 1000).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+        en: r.text,
+        source: 'google',
+      });
+    }
+  }
 
+  // Sort by most recent first
+  reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const output = { rating, totalCount, reviews };
   writeFileSync(outPath, JSON.stringify(output, null, 2));
-  console.log(`[fetch-reviews] Wrote ${reviews.length} reviews (${output.totalCount} total, ${output.rating}★) to src/data/reviews-live.json`);
+  console.log(`[fetch-reviews] Wrote ${reviews.length} unique reviews (${totalCount} total, ${rating}★)`);
 } catch (err) {
   console.error('[fetch-reviews] Failed:', err.message);
   writeFileSync(outPath, empty);
