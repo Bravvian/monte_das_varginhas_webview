@@ -41,6 +41,34 @@
       "date": "March 2025",
       "en": "",
       "source": "google"
+    },
+    {
+      "name": "Catarina F.",
+      "stars": 5,
+      "date": "August 2024",
+      "en": "Absolutely stunning property. The outdoor spaces are incredible — we spent every evening on the terrace with the whole family. The BBQ area is superb and the beach is only minutes away. The chaparro tree is magical. We will definitely be back!",
+      "source": "static"
+    },
+    {
+      "name": "James M.",
+      "stars": 5,
+      "date": "July 2024",
+      "en": "Wonderful week at Monte Varginhas. The house was spotlessly clean, very well equipped, and Delmira was incredibly helpful from the moment we arrived. The location is perfect — wild beaches, total peace and quiet. Highly recommend.",
+      "source": "static"
+    },
+    {
+      "name": "Pablo R.",
+      "stars": 4,
+      "date": "September 2024",
+      "en": "A beautiful and tranquil place, perfect to disconnect. The views of the Alentejo countryside are breathtaking and the grill evenings were unforgettable. Porto Covo village is also very charming.",
+      "source": "static"
+    },
+    {
+      "name": "Marie D.",
+      "stars": 5,
+      "date": "July 2024",
+      "en": "A real gem. The covered terrace with the dining table is where we spent most of our time — perfect for long meals outdoors. The Costa Vicentina beaches nearby are some of the most beautiful we have seen in Europe.",
+      "source": "static"
     }
   ]
 }
