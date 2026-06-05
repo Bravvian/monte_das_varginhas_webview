@@ -1,5 +1,6 @@
 dependencies:
-  - package.json
+  - changed-files:
+    - any-glob-to-any-file: 'package.json'
 
 configuration:
   - changed-files:
