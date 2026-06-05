@@ -107,7 +107,9 @@
   "success_msg": "A Delmira irá contactá-lo(a) em 24h para confirmar a estadia.",
   "rev_tag": "Avaliações",
   "rev_title": "O Que Dizem os Hóspedes",
-  "rev_count": "11 avaliações verificadas",
+  "rev_count": "avaliações verificadas",
+  "rev_count_suffix": "avaliações verificadas",
+  "rev_see_all": "Ver todas as avaliações no Google ↗"
   "rb1": "Limpeza",
   "rb2": "Precisão",
   "rb3": "Check-in",

@@ -1,5 +1,5 @@
 import useLanguage from '../hooks/useLanguage';
-import REVIEWS from '../data/reviews';
+import { REVIEWS, RATING, TOTAL_COUNT } from '../data/reviews';
 
 const COLORS = ['var(--terra)', 'var(--gold)', '#6B7280', '#3B82F6', '#8B5CF6', '#059669'];
 
@@ -14,6 +14,11 @@ const RATING_BARS = [
 
 export default function Reviews() {
   const { lang, t } = useLanguage();
+  const displayRating = RATING?.toFixed(1) ?? '—';
+  const countLabel = TOTAL_COUNT != null
+    ? `${TOTAL_COUNT} ${t('rev_count_suffix')}`
+    : t('rev_count');
+
   return (
     <section id="reviews">
       <div className="container">
@@ -21,9 +26,9 @@ export default function Reviews() {
         <h2 className="stitle">{t('rev_title')}</h2>
         <div className="rating-hero">
           <div className="r-big">
-            <div className="r-num">4.73</div>
+            <div className="r-num">{displayRating}</div>
             <div className="stars">★★★★★</div>
-            <div className="r-cnt">{t('rev_count')}</div>
+            <div className="r-cnt">{countLabel}</div>
           </div>
           <div className="r-bars">
             {RATING_BARS.map((bar) => (
@@ -39,7 +44,7 @@ export default function Reviews() {
         </div>
         <div className="rev-g">
           {REVIEWS.map((r, i) => (
-            <div className="rev-card" key={r.name}>
+            <div className="rev-card" key={r.name + r.date}>
               <div className="rev-hdr">
                 {r.profilePhoto
                   ? <img className="avatar" src={r.profilePhoto} alt={r.name} referrerPolicy="no-referrer" />
@@ -54,6 +59,16 @@ export default function Reviews() {
               <div className="rev-txt">{(lang === 'pt' && r.pt) ? r.pt : r.en}</div>
             </div>
           ))}
+        </div>
+        <div className="rev-footer">
+          <a
+            href={`https://search.google.com/local/reviews?placeid=ChIJQ5RoXPC8Gw0RozLSZl6H-Nk`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rev-google-link"
+          >
+            {t('rev_see_all')}
+          </a>
         </div>
       </div>
     </section>

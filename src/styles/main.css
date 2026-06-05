@@ -198,6 +198,9 @@ section{padding:80px 0}
 .rvr-date{font-size:.73rem;color:var(--muted)}
 .rev-stars{color:#FBB840;font-size:.82rem;margin-bottom:7px}
 .rev-txt{font-size:.84rem;color:var(--muted);line-height:1.7}
+.rev-footer{text-align:center;margin-top:32px}
+.rev-google-link{display:inline-block;font-size:.85rem;color:var(--terra);text-decoration:none;border:1px solid var(--terra);border-radius:99px;padding:8px 22px;transition:background .2s,color .2s}
+.rev-google-link:hover{background:var(--terra);color:#fff}
 /* LOCATION */
 #loc{background:var(--bg)}
 .loc-g{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:44px;align-items:start}

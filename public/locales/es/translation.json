@@ -107,7 +107,9 @@
   "success_msg": "Delmira te responderá en 24 horas. Pago por MB Way o en efectivo.",
   "rev_tag": "Reseñas de huéspedes",
   "rev_title": "Lo que dicen los huéspedes",
-  "rev_count": "11 reseñas verificadas",
+  "rev_count": "reseñas verificadas",
+  "rev_count_suffix": "reseñas verificadas",
+  "rev_see_all": "Ver todas las reseñas en Google ↗"
   "rb1": "Limpieza",
   "rb2": "Exactitud",
   "rb3": "Entrada",

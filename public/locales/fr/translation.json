@@ -107,7 +107,9 @@
   "success_msg": "Delmira vous répondra dans les 24 heures. Paiement par MB Way ou en espèces.",
   "rev_tag": "Avis des hôtes",
   "rev_title": "Ce que disent les hôtes",
-  "rev_count": "11 avis vérifiés",
+  "rev_count": "avis vérifiés",
+  "rev_count_suffix": "avis vérifiés",
+  "rev_see_all": "Voir tous les avis sur Google ↗"
   "rb1": "Propreté",
   "rb2": "Exactitude",
   "rb3": "Arrivée",

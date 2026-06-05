@@ -107,7 +107,9 @@
   "success_msg": "Delmira will get back to you within 24 hours. Payment by MB Way or cash.",
   "rev_tag": "Guest Reviews",
   "rev_title": "What Guests Say",
-  "rev_count": "11 verified reviews",
+  "rev_count": "verified reviews",
+  "rev_count_suffix": "verified reviews",
+  "rev_see_all": "See all reviews on Google ↗"
   "rb1": "Cleanliness",
   "rb2": "Accuracy",
   "rb3": "Check-in",

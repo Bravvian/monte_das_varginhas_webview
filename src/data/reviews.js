@@ -1,5 +1,5 @@
-import liveReviews from './reviews-live.json';
+import data from './reviews-live.json';
 
-const REVIEWS = liveReviews;
-
-export default REVIEWS;
+export const REVIEWS = data.reviews;
+export const RATING = data.rating;
+export const TOTAL_COUNT = data.totalCount;
