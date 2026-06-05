@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './styles/main.css';
 import { ALL_IMAGES } from './data/images';
 import useLightbox from './hooks/useLightbox';
@@ -48,6 +49,7 @@ export default function App() {
       <WhatsAppFloat />
       <CookieBanner />
       <Lightbox open={open} idx={idx} onClose={lbClose} onNav={onNav} />
+      <SpeedInsights />
     </>
   );
 }
