@@ -1,0 +1,27 @@
+dependencies:
+  - package.json
+
+configuration:
+  - changed-files:
+    - any-glob-to-any-file: 'vite.config.*'
+
+data:
+  - changed-files:
+    - any-glob-to-any-file: 'src/data/**'
+
+components:
+  - changed-files:
+    - any-glob-to-any-file: 'src/components/**'
+
+styles:
+  - changed-files:
+    - any-glob-to-any-file: 'src/**/*.css'
+
+i18n:
+  - changed-files:
+    - any-glob-to-any-file: 'public/locales/**'
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file: '.github/**'
+    - any-glob-to-any-file: 'scripts/**'
