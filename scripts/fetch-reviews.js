@@ -51,7 +51,6 @@ try {
   for (const json of [enJson, ptJson, esJson]) {
     if (json.status !== 'OK') continue;
     for (const r of (json.result?.reviews ?? [])) {
-      if (!r.text?.trim()) continue;
       const key = `${r.author_name}__${r.time}`;
       if (seen.has(key)) continue;
       seen.add(key);
@@ -66,8 +65,13 @@ try {
     }
   }
 
-  // Sort by most recent first
-  reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Text reviews first, then star-only; within each group newest first
+  reviews.sort((a, b) => {
+    const aHasText = a.en ? 1 : 0;
+    const bHasText = b.en ? 1 : 0;
+    if (bHasText !== aHasText) return bHasText - aHasText;
+    return new Date(b.date) - new Date(a.date);
+  });
 
   const output = { rating, totalCount, reviews };
   writeFileSync(outPath, JSON.stringify(output, null, 2));

@@ -56,7 +56,7 @@ export default function Reviews() {
                 </div>
               </div>
               <div className="rev-stars">{'★'.repeat(r.stars)}{'☆'.repeat(5 - r.stars)}</div>
-              <div className="rev-txt">{(lang === 'pt' && r.pt) ? r.pt : r.en}</div>
+              {r.en && <div className="rev-txt">{(lang === 'pt' && r.pt) ? r.pt : r.en}</div>}
             </div>
           ))}
         </div>
