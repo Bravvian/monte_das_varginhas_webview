@@ -62,6 +62,13 @@ export const ROOM4 = [
   '/images/room4/f60e431a-6672-476f-a20e-8db6b0c08585.avif',
 ];
 
+export const GALLERY_ALTS = [
+  'Exterior view of Monte das Varginhas villa and grounds',
+  'Covered terrace with outdoor dining at Monte das Varginhas',
+  'Garden and BBQ area at Monte das Varginhas',
+  'Outdoor living space at Monte das Varginhas',
+];
+
 export const ALL_IMAGES = [...HERO, ...GALLERY, ...ROOM1, ...ROOM2, ...ROOM3, ...ROOM4];
 
 export const OFFSETS = {

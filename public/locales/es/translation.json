@@ -135,6 +135,14 @@
   "foot_bottom": "Reserva directa — Sin comisiones de plataforma",
   "wa_tip": "Chatea con nosotros",
   "cookie_txt": "Usamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Al continuar aceptas nuestro uso de cookies.",
-  "cookie_ok": "Aceptar",
-  "cookie_no": "Rechazar"
+  "cookie_ok": "Aceptar todo",
+  "cookie_no": "Rechazar todo",
+  "cookie_customize": "Personalizar",
+  "cookie_prefs_title": "Preferencias de cookies",
+  "cookie_essential": "Esenciales",
+  "cookie_essential_desc": "Necesarias para el funcionamiento del sitio. No se pueden desactivar.",
+  "cookie_analytics": "Analítica",
+  "cookie_analytics_desc": "Nos ayudan a entender cómo los visitantes usan el sitio (Google Analytics).",
+  "cookie_always_on": "Siempre activo",
+  "cookie_save": "Guardar preferencias"
 }

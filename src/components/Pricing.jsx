@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import useLanguage from '../hooks/useLanguage';
+import { CFG } from '../data/config';
 
-const PRICE_ROWS = [
-  { key: 'pr1', price: '€70' },
-  { key: 'pr2', price: '€140' },
-  { key: 'pr3', price: '€210' },
-  { key: 'pr4', price: '€280' },
+const makePriceRows = (p) => [
+  { key: 'pr1', price: `€${p}` },
+  { key: 'pr2', price: `€${p * 2}` },
+  { key: 'pr3', price: `€${p * 3}` },
+  { key: 'pr4', price: `€${p * 4}` },
   { key: 'pr5', price: '€0', priceStyle: { color: '#22C55E' } },
 ];
 
@@ -13,7 +14,9 @@ export default function Pricing() {
   const { t } = useLanguage();
   const [rooms, setRooms] = useState(2);
   const [nights, setNights] = useState(5);
-  const total = rooms * 70 * nights;
+  const p = CFG.pricePerRoom;
+  const PRICE_ROWS = makePriceRows(p);
+  const total = rooms * p * nights;
 
   return (
     <section id="pricing">
@@ -24,7 +27,7 @@ export default function Pricing() {
         <div className="price-g">
           <div className="price-card">
             <div className="price-hero">
-              <div className="price-num">€70</div>
+              <div className="price-num">€{p}</div>
               <div className="price-unit">{t('price_unit')}</div>
             </div>
             <div className="price-rows">

@@ -135,6 +135,14 @@
   "foot_bottom": "Reserva direta — Sem taxas",
   "wa_tip": "Fale connosco",
   "cookie_txt": "Usamos cookies para melhorar a sua experiência e analisar o tráfego. Ao continuar aceita o uso de cookies.",
-  "cookie_ok": "Aceitar",
-  "cookie_no": "Recusar"
+  "cookie_ok": "Aceitar tudo",
+  "cookie_no": "Recusar tudo",
+  "cookie_customize": "Personalizar",
+  "cookie_prefs_title": "Preferências de Cookies",
+  "cookie_essential": "Essenciais",
+  "cookie_essential_desc": "Necessários para o funcionamento do site. Não podem ser desativados.",
+  "cookie_analytics": "Análise",
+  "cookie_analytics_desc": "Ajudam-nos a perceber como os visitantes usam o site (Google Analytics).",
+  "cookie_always_on": "Sempre ativo",
+  "cookie_save": "Guardar preferências"
 }

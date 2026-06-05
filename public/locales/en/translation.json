@@ -135,6 +135,14 @@
   "foot_bottom": "Direct booking — No platform fees",
   "wa_tip": "Chat with us",
   "cookie_txt": "We use cookies to improve your experience and analyse site traffic. By continuing you accept our use of cookies.",
-  "cookie_ok": "Accept",
-  "cookie_no": "Decline"
+  "cookie_ok": "Accept all",
+  "cookie_no": "Decline all",
+  "cookie_customize": "Customize",
+  "cookie_prefs_title": "Cookie Preferences",
+  "cookie_essential": "Essential",
+  "cookie_essential_desc": "Required for the site to work. Cannot be disabled.",
+  "cookie_analytics": "Analytics",
+  "cookie_analytics_desc": "Help us understand how visitors use the site (Google Analytics).",
+  "cookie_always_on": "Always on",
+  "cookie_save": "Save preferences"
 }
