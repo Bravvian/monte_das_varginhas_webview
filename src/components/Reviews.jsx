@@ -41,14 +41,17 @@ export default function Reviews() {
           {REVIEWS.map((r, i) => (
             <div className="rev-card" key={r.name}>
               <div className="rev-hdr">
-                <div className="avatar" style={{ background: COLORS[i] }}>{r.name.charAt(0)}</div>
+                {r.profilePhoto
+                  ? <img className="avatar" src={r.profilePhoto} alt={r.name} referrerPolicy="no-referrer" />
+                  : <div className="avatar" style={{ background: COLORS[i % COLORS.length] }}>{r.name.charAt(0)}</div>
+                }
                 <div>
-                  <div className="rvr-name">{r.name} {r.flag}</div>
+                  <div className="rvr-name">{r.name}{r.flag ? ` ${r.flag}` : ''}</div>
                   <div className="rvr-date">{r.date}</div>
                 </div>
               </div>
               <div className="rev-stars">{'★'.repeat(r.stars)}{'☆'.repeat(5 - r.stars)}</div>
-              <div className="rev-txt">{lang === 'pt' ? r.pt : r.en}</div>
+              <div className="rev-txt">{(lang === 'pt' && r.pt) ? r.pt : r.en}</div>
             </div>
           ))}
         </div>
