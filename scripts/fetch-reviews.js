@@ -29,11 +29,9 @@ async function fetchForLanguage(lang) {
 
 try {
   // Fetch in multiple languages — Google returns a different top-5 per language
-  const [enJson, ptJson, esJson] = await Promise.all([
-    fetchForLanguage('en'),
-    fetchForLanguage('pt'),
-    fetchForLanguage('es'),
-  ]);
+  const langs = ['en', 'pt', 'es', 'fr', 'de', 'nl', 'it'];
+  const results = await Promise.all(langs.map(fetchForLanguage));
+  const [enJson] = results;
 
   if (enJson.status !== 'OK') {
     console.error('[fetch-reviews] Places API error:', enJson.status, enJson.error_message);
@@ -48,7 +46,7 @@ try {
   const seen = new Set();
   const reviews = [];
 
-  for (const json of [enJson, ptJson, esJson]) {
+  for (const json of results) {
     if (json.status !== 'OK') continue;
     for (const r of (json.result?.reviews ?? [])) {
       const key = `${r.author_name}__${r.time}`;
