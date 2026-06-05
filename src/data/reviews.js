@@ -1,4 +1,6 @@
-const REVIEWS = [
+import liveReviews from './reviews-live.json';
+
+const STATIC_REVIEWS = [
   {
     name: 'Catarina F.',
     flag: '🇵🇹',
@@ -48,5 +50,7 @@ const REVIEWS = [
     pt: 'Ótima relação qualidade-preço para um grupo grande. Éramos 8 pessoas e tivemos muito espaço. A localização é excelente. A Delmira comunicou claramente. Voltávamos com prazer.'
   }
 ];
+
+const REVIEWS = liveReviews.length > 0 ? liveReviews : STATIC_REVIEWS;
 
 export default REVIEWS;
