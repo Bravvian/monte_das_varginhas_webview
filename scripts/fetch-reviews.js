@@ -65,10 +65,9 @@ try {
 
   // Text reviews first, then star-only; within each group newest first
   reviews.sort((a, b) => {
-    const aHasText = a.en ? 1 : 0;
-    const bHasText = b.en ? 1 : 0;
-    if (bHasText !== aHasText) return bHasText - aHasText;
-    return new Date(b.date) - new Date(a.date);
+    const aHasText = a.en?.trim() ? 1 : 0;
+    const bHasText = b.en?.trim() ? 1 : 0;
+    return bHasText - aHasText;
   });
 
   // Pad with curated static reviews until we reach 10
@@ -85,6 +84,13 @@ try {
     if (reviews.length >= 9) break;
     if (!liveNames.has(s.name)) reviews.push(s);
   }
+
+  // Sort all reviews: text first, star-only after
+  reviews.sort((a, b) => {
+    const aHasText = a.en?.trim() ? 1 : 0;
+    const bHasText = b.en?.trim() ? 1 : 0;
+    return bHasText - aHasText;
+  });
 
   const output = { rating, totalCount, reviews };
   writeFileSync(outPath, JSON.stringify(output, null, 2));
