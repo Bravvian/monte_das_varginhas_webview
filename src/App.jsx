@@ -3,6 +3,7 @@ import './styles/main.css';
 import { ALL_IMAGES } from './data/images';
 import useLightbox from './hooks/useLightbox';
 import useLanguage from './hooks/useLanguage';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -48,6 +49,7 @@ export default function App() {
       <WhatsAppFloat />
       <CookieBanner />
       <Lightbox open={open} idx={idx} onClose={lbClose} onNav={onNav} />
+      <SpeedInsights />
     </>
   );
 }
