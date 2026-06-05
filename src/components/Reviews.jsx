@@ -60,6 +60,16 @@ export default function Reviews() {
             </div>
           ))}
         </div>
+        <div className="rev-footer">
+          <a
+            href={`https://search.google.com/local/reviews?placeid=ChIJQ5RoXPC8Gw0RozLSZl6H-Nk`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rev-google-link"
+          >
+            {t('rev_see_all')}
+          </a>
+        </div>
       </div>
     </section>
   );
