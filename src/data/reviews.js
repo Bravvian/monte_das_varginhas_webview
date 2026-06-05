@@ -51,6 +51,9 @@ const STATIC_REVIEWS = [
   }
 ];
 
-const REVIEWS = liveReviews.length > 0 ? liveReviews : STATIC_REVIEWS;
+// Show live Google reviews first, then pad with static ones if fewer than 4
+const REVIEWS = liveReviews.length >= 4
+  ? liveReviews
+  : [...liveReviews, ...STATIC_REVIEWS].slice(0, 6);
 
 export default REVIEWS;

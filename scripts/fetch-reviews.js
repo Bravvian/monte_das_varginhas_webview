@@ -33,7 +33,7 @@ try {
 
   const raw = json.result?.reviews ?? [];
 
-  const reviews = raw.map((r) => ({
+  const reviews = raw.filter((r) => r.text?.trim()).map((r) => ({
     name: r.author_name,
     profilePhoto: r.profile_photo_url,
     stars: r.rating,
