@@ -134,7 +134,17 @@
   "foot_email": "Nous écrire",
   "foot_bottom": "Réservation directe — Sans frais de plateforme",
   "wa_tip": "Chattez avec nous",
+  "wa_float_msg": "Bonjour ! Je souhaite en savoir plus sur le Monte das Varginhas. Pouvez-vous m'aider avec les disponibilités et la réservation ?",
+  "wa_book_msg": "Bonjour ! Je souhaite réserver le Monte Varginhas. Arrivée : {{sIn}}, Départ : {{sOut}}",
   "cookie_txt": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site. En continuant, vous acceptez notre utilisation des cookies.",
-  "cookie_ok": "Accepter",
-  "cookie_no": "Refuser"
+  "cookie_ok": "Tout accepter",
+  "cookie_no": "Tout refuser",
+  "cookie_customize": "Personnaliser",
+  "cookie_prefs_title": "Préférences de cookies",
+  "cookie_essential": "Essentiels",
+  "cookie_essential_desc": "Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.",
+  "cookie_analytics": "Analyses",
+  "cookie_analytics_desc": "Nous aident à comprendre comment les visiteurs utilisent le site (Google Analytics).",
+  "cookie_always_on": "Toujours actif",
+  "cookie_save": "Enregistrer les préférences"
 }

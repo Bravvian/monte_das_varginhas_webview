@@ -38,9 +38,7 @@ export default function Booking() {
     setSent(true);
   };
 
-  const waMsg = encodeURIComponent(
-    `Hello! I'd like to book Monte Varginhas. Check-in: ${sIn || '?'}, Check-out: ${sOut || '?'}`
-  );
+  const waMsg = encodeURIComponent(t('wa_book_msg', { sIn: sIn || '?', sOut: sOut || '?' }));
 
   return (
     <section id="booking">

@@ -3,10 +3,11 @@ import { CFG } from '../data/config';
 
 export default function WhatsAppFloat() {
   const { t } = useLanguage();
+  const msg = encodeURIComponent(t('wa_float_msg'));
   return (
     <a
       className="wa-float"
-      href={`https://wa.me/${CFG.whatsapp}`}
+      href={`https://wa.me/${CFG.whatsapp}?text=${msg}`}
       target="_blank"
       rel="noreferrer"
       aria-label="Contact via WhatsApp"

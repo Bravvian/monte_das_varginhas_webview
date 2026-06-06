@@ -1,5 +1,5 @@
 import useLanguage from '../hooks/useLanguage';
-import { GALLERY, OFFSETS } from '../data/images';
+import { GALLERY, GALLERY_ALTS, OFFSETS } from '../data/images';
 
 export default function Gallery({ onImageClick }) {
   const { t } = useLanguage();
@@ -11,7 +11,7 @@ export default function Gallery({ onImageClick }) {
         <div className="gal-g">
           {GALLERY.map((src, i) => (
             <div className="gal-img" key={src} onClick={() => onImageClick(OFFSETS.GALLERY + i)}>
-              <img src={src} alt={`Monte Varginhas photo ${i + 1}`} loading="lazy" />
+              <img src={src} alt={GALLERY_ALTS[i] || `Monte Varginhas photo ${i + 1}`} loading="lazy" />
             </div>
           ))}
         </div>
