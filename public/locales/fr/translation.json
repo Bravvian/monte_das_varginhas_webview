@@ -134,6 +134,8 @@
   "foot_email": "Nous écrire",
   "foot_bottom": "Réservation directe — Sans frais de plateforme",
   "wa_tip": "Chattez avec nous",
+  "wa_float_msg": "Bonjour ! Je souhaite en savoir plus sur le Monte das Varginhas. Pouvez-vous m'aider avec les disponibilités et la réservation ?",
+  "wa_book_msg": "Bonjour ! Je souhaite réserver le Monte Varginhas. Arrivée : {{sIn}}, Départ : {{sOut}}",
   "cookie_txt": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site. En continuant, vous acceptez notre utilisation des cookies.",
   "cookie_ok": "Tout accepter",
   "cookie_no": "Tout refuser",

@@ -134,6 +134,8 @@
   "foot_email": "Email Us",
   "foot_bottom": "Direct booking — No platform fees",
   "wa_tip": "Chat with us",
+  "wa_float_msg": "Hello! I'd like to find out more about Monte das Varginhas. Could you help me with availability and booking?",
+  "wa_book_msg": "Hello! I'd like to book Monte Varginhas. Check-in: {{sIn}}, Check-out: {{sOut}}",
   "cookie_txt": "We use cookies to improve your experience and analyse site traffic. By continuing you accept our use of cookies.",
   "cookie_ok": "Accept all",
   "cookie_no": "Decline all",

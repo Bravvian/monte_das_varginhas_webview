@@ -3,7 +3,7 @@ import { CFG } from '../data/config';
 
 export default function WhatsAppFloat() {
   const { t } = useLanguage();
-  const msg = encodeURIComponent("Hello! I'd like to find out more about Monte das Varginhas. Could you help me with availability and booking?");
+  const msg = encodeURIComponent(t('wa_float_msg'));
   return (
     <a
       className="wa-float"
