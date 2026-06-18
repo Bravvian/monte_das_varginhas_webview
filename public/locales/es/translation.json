@@ -135,7 +135,7 @@
   "foot_bottom": "Reserva directa — Sin comisiones de plataforma",
   "wa_tip": "Chatea con nosotros",
   "wa_float_msg": "¡Hola! Me gustaría saber más sobre el Monte das Varginhas. ¿Puede ayudarme con la disponibilidad y la reserva?",
-  "wa_book_msg": "¡Hola! Me gustaría reservar el Monte Varginhas. Entrada: {{sIn}}, Salida: {{sOut}}",
+  "wa_book_msg": "¡Hola! Me gustaría reservar el Monte Varginhas.\n\nEntrada: {{sIn}}\nSalida: {{sOut}}\nHabitaciones: {{rooms}}\nHuéspedes: {{guests}}\nNombre: {{name}}",
   "cookie_txt": "Usamos cookies para mejorar tu experiencia y analizar el tráfico del sitio. Al continuar aceptas nuestro uso de cookies.",
   "cookie_ok": "Aceptar todo",
   "cookie_no": "Rechazar todo",

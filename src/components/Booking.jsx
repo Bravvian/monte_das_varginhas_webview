@@ -21,6 +21,12 @@ export default function Booking() {
   const { sIn, sOut, pick, prevMonth, nextMonth, renderData } = useCalendar();
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [rooms, setRooms] = useState('1');
+  const [guests, setGuests] = useState('1');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [notes, setNotes] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +44,17 @@ export default function Booking() {
     setSent(true);
   };
 
-  const waMsg = encodeURIComponent(t('wa_book_msg', { sIn: sIn || '?', sOut: sOut || '?' }));
+  const name = [firstName, lastName].filter(Boolean).join(' ');
+  let waText = t('wa_book_msg', {
+    sIn: sIn || '?',
+    sOut: sOut || '?',
+    rooms,
+    guests,
+    name: name || '?',
+  });
+  if (phone) waText += `\nPhone: ${phone}`;
+  if (notes) waText += `\n\n${notes}`;
+  const waMsg = encodeURIComponent(waText);
 
   return (
     <section id="booking">
@@ -119,13 +135,13 @@ export default function Booking() {
                 <div className="frow">
                   <div className="fg">
                     <label>{t('lbl_rooms')}</label>
-                    <select name="rooms">
+                    <select name="rooms" value={rooms} onChange={e => setRooms(e.target.value)}>
                       {[1,2,3,4].map(n => <option key={n} value={n}>{n}</option>)}
                     </select>
                   </div>
                   <div className="fg">
                     <label>{t('lbl_guests')}</label>
-                    <select name="guests">
+                    <select name="guests" value={guests} onChange={e => setGuests(e.target.value)}>
                       {[...Array(10)].map((_, i) => <option key={i+1} value={i+1}>{i+1}</option>)}
                     </select>
                   </div>
@@ -133,11 +149,11 @@ export default function Booking() {
                 <div className="frow">
                   <div className="fg">
                     <label>{t('lbl_fn')}</label>
-                    <input name="firstName" required />
+                    <input name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} required />
                   </div>
                   <div className="fg">
                     <label>{t('lbl_ln')}</label>
-                    <input name="lastName" required />
+                    <input name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} required />
                   </div>
                 </div>
                 <div className="fg">
@@ -146,11 +162,11 @@ export default function Booking() {
                 </div>
                 <div className="fg">
                   <label>{t('lbl_phone')}</label>
-                  <input name="phone" type="tel" />
+                  <input name="phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} />
                 </div>
                 <div className="fg">
                   <label>{t('lbl_msg')}</label>
-                  <textarea name="message" placeholder={t('msg_ph')}></textarea>
+                  <textarea name="message" value={notes} onChange={e => setNotes(e.target.value)} placeholder={t('msg_ph')}></textarea>
                 </div>
                 <button className="sub-btn" type="submit" disabled={sending}>
                   <i className="fa fa-paper-plane"></i>

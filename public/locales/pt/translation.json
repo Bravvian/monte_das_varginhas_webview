@@ -135,7 +135,7 @@
   "foot_bottom": "Reserva direta — Sem taxas",
   "wa_tip": "Fale connosco",
   "wa_float_msg": "Olá! Gostaria de saber mais sobre o Monte das Varginhas. Pode ajudar-me com disponibilidade e reserva?",
-  "wa_book_msg": "Olá! Gostaria de reservar o Monte Varginhas. Check-in: {{sIn}}, Check-out: {{sOut}}",
+  "wa_book_msg": "Olá! Gostaria de reservar o Monte Varginhas.\n\nCheck-in: {{sIn}}\nCheck-out: {{sOut}}\nQuartos: {{rooms}}\nHóspedes: {{guests}}\nNome: {{name}}",
   "cookie_txt": "Usamos cookies para melhorar a sua experiência e analisar o tráfego. Ao continuar aceita o uso de cookies.",
   "cookie_ok": "Aceitar tudo",
   "cookie_no": "Recusar tudo",
