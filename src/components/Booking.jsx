@@ -19,30 +19,12 @@ const DAY_NAMES = {
 export default function Booking() {
   const { lang, t } = useLanguage();
   const { sIn, sOut, pick, prevMonth, nextMonth, renderData } = useCalendar();
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
   const [rooms, setRooms] = useState('1');
   const [guests, setGuests] = useState('1');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
-    try {
-      await fetch(`https://formspree.io/f/${CFG.formspreeId}`, {
-        method: 'POST',
-        body: new FormData(e.target),
-        headers: { Accept: 'application/json' },
-      });
-    } catch {
-      // fall through to success state; user can use WhatsApp
-    }
-    setSending(false);
-    setSent(true);
-  };
 
   const name = [firstName, lastName].filter(Boolean).join(' ');
   let waText = t('wa_book_msg', {
@@ -113,77 +95,61 @@ export default function Booking() {
             </div>
           </div>
           <div className="bform">
-            {sent ? (
-              <div className="success" style={{ display: 'block' }}>
-                <i className="fa fa-circle-check"></i>
-                <h3>{t('success_title')}</h3>
-                <p>{t('success_msg')}</p>
+            <div>
+              <h3>{t('form_title')}</h3>
+              <div className="frow">
+                <div className="fg">
+                  <label>{t('lbl_cin')}</label>
+                  <input value={sIn} readOnly placeholder="YYYY-MM-DD" />
+                </div>
+                <div className="fg">
+                  <label>{t('lbl_cout')}</label>
+                  <input value={sOut} readOnly placeholder="YYYY-MM-DD" />
+                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <h3>{t('form_title')}</h3>
-                <div className="frow">
-                  <div className="fg">
-                    <label>{t('lbl_cin')}</label>
-                    <input name="checkin" value={sIn} readOnly placeholder="YYYY-MM-DD" required />
-                  </div>
-                  <div className="fg">
-                    <label>{t('lbl_cout')}</label>
-                    <input name="checkout" value={sOut} readOnly placeholder="YYYY-MM-DD" required />
-                  </div>
-                </div>
-                <div className="frow">
-                  <div className="fg">
-                    <label>{t('lbl_rooms')}</label>
-                    <select name="rooms" value={rooms} onChange={e => setRooms(e.target.value)}>
-                      {[1,2,3,4].map(n => <option key={n} value={n}>{n}</option>)}
-                    </select>
-                  </div>
-                  <div className="fg">
-                    <label>{t('lbl_guests')}</label>
-                    <select name="guests" value={guests} onChange={e => setGuests(e.target.value)}>
-                      {[...Array(10)].map((_, i) => <option key={i+1} value={i+1}>{i+1}</option>)}
-                    </select>
-                  </div>
-                </div>
-                <div className="frow">
-                  <div className="fg">
-                    <label>{t('lbl_fn')}</label>
-                    <input name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} required />
-                  </div>
-                  <div className="fg">
-                    <label>{t('lbl_ln')}</label>
-                    <input name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} required />
-                  </div>
+              <div className="frow">
+                <div className="fg">
+                  <label>{t('lbl_rooms')}</label>
+                  <select value={rooms} onChange={e => setRooms(e.target.value)}>
+                    {[1,2,3,4].map(n => <option key={n} value={n}>{n}</option>)}
+                  </select>
                 </div>
                 <div className="fg">
-                  <label>Email</label>
-                  <input name="email" type="email" required />
+                  <label>{t('lbl_guests')}</label>
+                  <select value={guests} onChange={e => setGuests(e.target.value)}>
+                    {[...Array(10)].map((_, i) => <option key={i+1} value={i+1}>{i+1}</option>)}
+                  </select>
+                </div>
+              </div>
+              <div className="frow">
+                <div className="fg">
+                  <label>{t('lbl_fn')}</label>
+                  <input value={firstName} onChange={e => setFirstName(e.target.value)} />
                 </div>
                 <div className="fg">
-                  <label>{t('lbl_phone')}</label>
-                  <input name="phone" type="tel" value={phone} onChange={e => setPhone(e.target.value)} />
+                  <label>{t('lbl_ln')}</label>
+                  <input value={lastName} onChange={e => setLastName(e.target.value)} />
                 </div>
-                <div className="fg">
-                  <label>{t('lbl_msg')}</label>
-                  <textarea name="message" value={notes} onChange={e => setNotes(e.target.value)} placeholder={t('msg_ph')}></textarea>
-                </div>
-                <button className="sub-btn" type="submit" disabled={sending}>
-                  <i className="fa fa-paper-plane"></i>
-                  {t('btn_send')}
-                </button>
-                <a
-                  className="wa-btn"
-                  href={`https://wa.me/${CFG.whatsapp}?text=${waMsg}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <i className="fab fa-whatsapp"></i>
-                  {t('btn_wa')}
-                </a>
-                <div className="pay-note" dangerouslySetInnerHTML={{ __html: t('pay_note') }} />
-              </form>
-            )}
+              </div>
+              <div className="fg">
+                <label>{t('lbl_phone')}</label>
+                <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} />
+              </div>
+              <div className="fg">
+                <label>{t('lbl_msg')}</label>
+                <textarea value={notes} onChange={e => setNotes(e.target.value)} placeholder={t('msg_ph')}></textarea>
+              </div>
+              <a
+                className="wa-btn"
+                href={`https://wa.me/${CFG.whatsapp}?text=${waMsg}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="fab fa-whatsapp"></i>
+                {t('btn_wa')}
+              </a>
+              <div className="pay-note" dangerouslySetInnerHTML={{ __html: t('pay_note') }} />
+            </div>
           </div>
         </div>
       </div>
