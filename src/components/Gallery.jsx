@@ -1,5 +1,5 @@
 import useLanguage from '../hooks/useLanguage';
-import { GALLERY, GALLERY_ALTS, OFFSETS } from '../data/images';
+import { GALLERY, GALLERY_ALTS, OFFSETS, ALL_IMAGES } from '../data/images';
 
 export default function Gallery({ onImageClick }) {
   const { t } = useLanguage();
@@ -17,7 +17,7 @@ export default function Gallery({ onImageClick }) {
         </div>
         <button className="gal-btn" onClick={() => onImageClick(OFFSETS.GALLERY)}>
           <i className="fa fa-images"></i>
-          <span>{t('gal_btn')}</span>
+          <span>{t('gal_btn', { count: ALL_IMAGES.length })}</span>
         </button>
       </div>
     </section>

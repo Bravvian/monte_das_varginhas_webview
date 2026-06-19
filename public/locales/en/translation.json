@@ -83,7 +83,7 @@
   "rule6s": "Book rooms individually or all together",
   "gal_tag": "Gallery",
   "gal_title": "See the property",
-  "gal_btn": "View all 46 photos",
+  "gal_btn": "View all {{count}} photos",
   "book_tag": "Reserve your stay",
   "book_title": "Book directly & save",
   "book_sub": "No platform fees. Pick your dates, fill in your details, and Delmira will confirm your booking within 24h.",

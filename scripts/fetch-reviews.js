@@ -10,8 +10,7 @@ const API_KEY = process.env.GOOGLE_PLACES_KEY;
 const PLACE_ID = process.env.GOOGLE_PLACE_ID;
 
 if (!API_KEY || !PLACE_ID) {
-  console.warn('[fetch-reviews] GOOGLE_PLACES_KEY or GOOGLE_PLACE_ID not set — skipping.');
-  writeFileSync(outPath, empty);
+  console.warn('[fetch-reviews] GOOGLE_PLACES_KEY or GOOGLE_PLACE_ID not set — skipping (existing reviews-live.json preserved).');
   process.exit(0);
 }
 

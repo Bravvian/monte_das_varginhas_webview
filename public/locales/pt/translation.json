@@ -83,7 +83,7 @@
   "rule6s": "Reserve quartos individualmente ou todos",
   "gal_tag": "Galeria",
   "gal_title": "Conheça a propriedade",
-  "gal_btn": "Ver todas as 46 fotos",
+  "gal_btn": "Ver todas as {{count}} fotos",
   "book_tag": "Reserve a sua estadia",
   "book_title": "Reserve diretamente e poupe",
   "book_sub": "Sem taxas de plataforma. Escolha as datas, preencha os seus dados e a Delmira confirma em 24h.",

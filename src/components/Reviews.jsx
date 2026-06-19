@@ -47,7 +47,7 @@ export default function Reviews() {
             <div className="rev-card" key={r.name + r.date}>
               <div className="rev-hdr">
                 {r.profilePhoto
-                  ? <img className="avatar" src={r.profilePhoto} alt={r.name} referrerPolicy="no-referrer" />
+                  ? <img className="avatar" src={r.profilePhoto} alt={r.name} referrerPolicy="no-referrer" loading="lazy" />
                   : <div className="avatar" style={{ background: COLORS[i % COLORS.length] }}>{r.name.charAt(0)}</div>
                 }
                 <div>

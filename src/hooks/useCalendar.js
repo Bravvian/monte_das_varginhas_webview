@@ -76,6 +76,11 @@ export default function useCalendar() {
       setSIn(dateStr);
       setSOut('');
     } else if (dateStr > sIn) {
+      if (dateStr < addDays(sIn, 2)) {
+        setSIn(dateStr);
+        setSOut('');
+        return;
+      }
       let d = addDays(sIn, 1);
       let hasBlocked = false;
       while (d < dateStr) {
