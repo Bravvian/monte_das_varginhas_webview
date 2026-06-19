@@ -10,5 +10,12 @@ export const CFG = {
   googleApiKey: '',
   googlePlaceId: '',
   // € per room per night — edit here to update all pricing across the site
-  pricePerRoom: 70,
+  priceSummer: 90, // Jun–Sep
+  priceWinter: 70, // Oct–May
 };
+
+// Returns the price for the given date (defaults to today)
+export function getSeasonPrice(date = new Date()) {
+  const month = date.getMonth() + 1; // 1–12
+  return month >= 6 && month <= 9 ? CFG.priceSummer : CFG.priceWinter;
+}
