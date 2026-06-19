@@ -50,6 +50,7 @@ All prefixed `VITE_` (required by Vite for browser exposure). Hardcoded fallback
 | `VITE_WHATSAPP` | WhatsApp number, no `+` (e.g. `351914706704`) |
 | `VITE_EMAIL` | Contact email |
 | `VITE_GA_ID` | GA4 measurement ID; omit to disable |
+| `VITE_SITE_URL` | Canonical site URL, no trailing slash (e.g. `https://yourdomain.com`). Used in canonical, hreflang, og:url, and JSON-LD. Also update `public/sitemap.xml` and `public/robots.txt` when the domain changes. |
 
 ### Deployment
 
