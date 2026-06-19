@@ -56,6 +56,8 @@
   "price_title": "Simple, Transparent Pricing",
   "price_sub": "Book the rooms you need — no hidden fees, no platform commissions.",
   "price_unit": "per room / per night",
+  "price_summer": "Summer (Jun–Sep)",
+  "price_winter": "Winter (Oct–May)",
   "pr1": "1 room (up to ~2 guests)",
   "pr2": "2 rooms (up to ~4 guests)",
   "pr3": "3 rooms (up to ~7 guests)",

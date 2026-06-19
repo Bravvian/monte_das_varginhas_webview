@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useLanguage from '../hooks/useLanguage';
-import { CFG } from '../data/config';
+import { CFG, getSeasonPrice } from '../data/config';
 
 const makePriceRows = (p) => [
   { key: 'pr1', price: `€${p}` },
@@ -14,7 +14,10 @@ export default function Pricing() {
   const { t } = useLanguage();
   const [rooms, setRooms] = useState(2);
   const [nights, setNights] = useState(5);
-  const p = CFG.pricePerRoom;
+  const p = getSeasonPrice();
+  const month = new Date().getMonth() + 1;
+  const isSummer = month >= 6 && month <= 9;
+  const altPrice = isSummer ? CFG.priceWinter : CFG.priceSummer;
   const PRICE_ROWS = makePriceRows(p);
   const total = rooms * p * nights;
 
@@ -29,6 +32,10 @@ export default function Pricing() {
             <div className="price-hero">
               <div className="price-num">€{p}</div>
               <div className="price-unit">{t('price_unit')}</div>
+            </div>
+            <div className="price-season-wrap">
+              <span className="price-season-badge">{isSummer ? t('price_summer') : t('price_winter')}</span>
+              <span className="price-season-alt">{isSummer ? t('price_winter') : t('price_summer')}: €{altPrice}</span>
             </div>
             <div className="price-rows">
               {PRICE_ROWS.map((row) => (
