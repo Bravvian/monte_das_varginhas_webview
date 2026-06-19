@@ -134,7 +134,7 @@
   "foot_explore": "Explorer",
   "foot_contact": "Contact",
   "foot_email": "Nous écrire",
-  "foot_bottom": "Réservation directe — Sans frais de plateforme",
+  "foot_bottom": "Réservation directe — sans frais de plateforme",
   "wa_tip": "Chattez avec nous",
   "wa_float_msg": "Bonjour ! Je souhaite en savoir plus sur le Monte das Varginhas. Pouvez-vous m'aider avec les disponibilités et la réservation ?",
   "wa_book_msg": "Bonjour ! Je souhaite réserver le Monte Varginhas.\n\nArrivée : {{sIn}}\nDépart : {{sOut}}\nChambres : {{rooms}}\nHôtes : {{guests}}\nNom : {{name}}",
