@@ -271,6 +271,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:48px 0 24px}
   font-weight: 600;
 }
 .skip-link:focus { top: 0; }
+/* Force about section title to one line in the 2-column desktop layout */
+@media(min-width:901px){
+  #about .stitle{font-size:clamp(1.3rem,2vw,1.7rem);white-space:nowrap}
+}
+
 /* RESPONSIVE */
 @media(max-width:1000px){.beds-g{grid-template-columns:repeat(2,1fr)}.price-g{grid-template-columns:1fr}}
 @media(max-width:900px){
